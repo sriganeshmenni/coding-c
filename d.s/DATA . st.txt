@@ -1,0 +1,227 @@
+Ds in a nutshell
+1. searching    
+     1.linear search
+     2.binary search
+2.sorting
+     1.bubble sort,selection sort,insertion sort
+     2.merge,quick,radix
+3.linked lists
+     1.implementation
+     2.application
+4.stacks
+     1.implementation
+     2.application
+5.queues
+     1.implementation
+     2.application
+6.trees
+7.graphs
+8.hashing
+
+Binary Search:
+1. Algorithm which is used to find a key in a sorted data
+2. binary search works on the sorted data(ascending or descending)
+# 3D
+define
+
+
+
+Algorithm:
+s1: take 2 variables called low and high
+s2:set low as 0and high is len-1
+s3:Run a loop as long as low <= high
+    s4:compute a value called mid =(low + high)/2
+    s5:
+        case 1: if A[mid]==key,then return mid
+        case 2: if A[mid]>key,then set high to mid-1
+        case 1: if A[mid]<key,then set low = mid+1
+   return -1 (if key not found)
+
+   *****Sorting*****
+ 1. Arranging data in ascending or descending order based on values
+ 2. Insertions,Bubble,Selection,Merge,Quick sort.
+ 
+   1. Insertion sort :
+Algorithm
+ s1: Run aloop on array from index 1 to index n-1 (inclusive) using a variable i
+        s2: take 2 variables called key,j and set key to A[i],j to i-1
+         s3:run a loop as long as j>=0 && A[j]>key
+            s4: inside this loop A[j+1] =A[j]
+                       decrement j (j--)
+                s5: After coming out of the inner loop
+                     set A[j+1] = key;
+
+  ###(in sorting completion of one inner loop called as a PASS)
+ 
+******Bubble Sort******
+
+Algorithm :
+ s1: Run an outerloop from index 0 to index n-1 (use i)
+   s2 : run inner loop from index 0 to n-2 (use j)
+       s3: compare A[j] > A[j+1]
+         case1: If true, swap A[j] and A[j+1]
+          case 2: If false, Do nothing.
+
+
+******selection  Sort******
+
+Algorithm :
+ s1: Run an outerloop from index 0 to index n-2 (use i).
+   s2 : Take a variable called min and set it to i.
+     s3: Run an innerloop from index i+1 to index n-1 (use i).
+       s4: compare A[j] < A[min] ,if true set min to j
+         s5: after coming out of inner loop swap values
+                 A[i] and A[min]
+
+
+*******merge sorts********  
+1. Merging two sorted arrays
+Definition:
+     You will be given 2 arrays a and b of sizes m and n respectively
+ a is a sorted array ,so i s b.
+ Target : Create a new array from  A and b which is also sorted.
+ Invented in 1945
+BY John Von Neumann
+    1.An array with one element is always sorted.
+    2. divide and conquer
+
+ running time For : Bubble , selection , insertion is n^2.
+                    Merge and Quick is nlogn(with base 2).
+
+
+*******Quick sort*******
+
+1. Invented in the year 1959.
+2. Inventor -> Richard Hoare
+3. One of the top-10 algorithms invented in the 20th Century.
+4. Sub-Routine -> partitioning
+5. pivot element is the word that you see in quick sort a lot.
+6. partitioning:
+    (i) take a povit element (generally either the last element or the first element)
+    (ii) Re-arrange the array in such way that
+        a. Every value present on the left part of pivot is smalleer than equals to the pivot.
+        b. Every value present on the right part of pivot is greater than pivot.
+
+1. Navie  partition scheme
+2. Lomuto partition scheme
+3. Hoar's partition scheme
+
+********* Operations ona Singly Linked List ***********
+Insertion
+you have a linked list and a new node
+1. Insertion at head / Insertion at beginning
+2. Insertion at tail /Insertion at end
+3.Insertion at a given position
+Deletion
+1. deletion at head /deletion at beginning
+2. deletion at tail / deletion at end
+3.deletion at a given position
+
+Applications of Linked List
+1. Sparse matrix Representation
+    Is a matrix in which there are more Zeros than non zero elements
+    Opppsite : Dense Matrix
+       the purpose of repesenting a sparse matrix via linked list to save memory.
+  2. Polynomial Representation
+  3. polynomial Addition
+
+*****Circular Linked List********
+First and last nodes
+
+
+*******stacks ---->applications
+LIFO
+
+Application of stack parantheses matching
+(){()[](){([])}}
+open Braces --> {([
+Closed Braces --> })]
+stack
+-> Balancing Brackets Example:
+You'll be given a string consisting of any of these 6 "{([","})] and you need to tell the given arrangement is valid or not Balanced Brackets Examples:
+(), {{([])}}, {}{}()[], [[[((({{{}}})))]]]
+-> UnBalanced Brackets Examples:
+()), [(]),  {{}){}[)], {([]})
+Algorithm:
+1. open = "{([",closed = "})]"
+2. We maintain a stack of characters st
+3. start running a loop on the given string s
+4. If current character (s[i]) is an open bracket
+push into the stack
+s[i] == ')'
+st[top]=='('
+    Else
+check if stack is not empty and stack [top] contains
+corresponding open, then pop the element from stack
+Else brackets are not balanced, terminate the loop
+
+***************************************
+Applications
+
+
+
+ Stacks
+A+B --> infix form
++AB --> prefix form
+AB+ --> postfix form
+
+Infix prefix postfix
+A+B +AB AB+
+C*D *CD CD*
+A+B*C +A*BC ABC*+
+(A+B)*C *+ABC AB+C*
+
+postfix :-
+
+1. H+A/S-F
+2. H+AS/-F (AS/ --> X)
+3. H+X-F
+4. HX+-F (HX+ --> Y)
+5. Y-F
+6. YF-
+7. HAS/+F-
+
+Prefix :- Notation (polish Notation)
+
+postfix :-
+
+convert Infix Expression into postfix Expression using stack
+1. you're given a string called infix, it contain either uppercase alphabets and 4 kinds of operators (+,-,*,/).you need to convert the string into it'spostfix (RPN) form.
+
+Alogorithm:
+pre processing step:
+Maintain a priority table:
+*,/--> 3
++,- --> 2
+operands -->1
+step1: take a string of same length and call it as postfix.
+step2: take a stack of characters and take top and set it to -1(st[],top-1)
+step3: take 2 variables i to run of input infix string j to run on output postfix string nad set both to 0.
+step4: start running a loop on given input string
+if infix[i] is an operand:
+put it in the output string
+else:
+As long as top !=-1 and priority(infix[i]) <= priority(st[top])
+keep on popping the element from stack and insert in the output string.
+
+push current charcter (infix[i]) into the stack
+
+step5: If there are any operators left over in the stack directly bring them to the output  string from top to bottom
+1. open brace ( push into the stack
+2. close brace ) pop all the element until nearest corresponding open brace from stack and put into output string.  Remove open bracket also from stack.
+
+Evaluation of Reverse polish Notation.
+problem statement:
+ you are given a string in the form of
+
+Algorithm:
+1. Take a stack of integers st
+2. Take top = -1,i to run the loop on postfix string
+3. start a running a loop on given string
+if(postfix[i] is a digit)
+push into the stack
+else (if postfix [i] is a operator)
+pop top 2 items from stack
+perfrom corresponding operation
+push the result back into the stack
+
